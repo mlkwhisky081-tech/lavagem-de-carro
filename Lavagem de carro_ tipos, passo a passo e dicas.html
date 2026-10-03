@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lavagem de carro: tipos, passo a passo e dicas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F8FA; --surface:#FFFFFF; --ink:#0E3B43; --muted:#4F6B72; --line:#C9DDE2;
+  --rinse:#1E9FC9; --squeegee:#FFC93C; --grime:#B9A987;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0B2127;--surface:#102D35;--ink:#E6F2F5;--muted:#9DB8BF;--line:#21444D;--rinse:#4CC3EA;--grime:#6E6347}
+}
+:root[data-theme="dark"]{--bg:#0B2127;--surface:#102D35;--ink:#E6F2F5;--muted:#9DB8BF;--line:#21444D;--rinse:#4CC3EA;--grime:#6E6347}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--rinse);outline-offset:3px;border-radius:4px}
+.wrap{width:min(100% - 2.5rem,68rem);margin-inline:auto}
+
+header.top{padding-block:1.25rem}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.brand{font:800 1.25rem var(--display);text-decoration:none}
+nav a{margin-left:1.25rem;text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+/* HERO */
+.hero{padding-block:clamp(3rem,9vw,7rem) clamp(3rem,7vw,5rem)}
+.wipe{position:relative;display:inline-block;max-width:100%}
+h1{font:800 clamp(2.75rem,9vw,6.5rem)/0.95 var(--display);letter-spacing:-0.03em;margin:0}
+.wipe::before{content:"";position:absolute;inset:-0.1em -0.15em;z-index:2;pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(0,0,0,.18) 0 2px,transparent 3px) 0 0/38px 31px,
+    radial-gradient(circle at 70% 60%,rgba(0,0,0,.14) 0 3px,transparent 4px) 0 0/53px 47px,
+    var(--grime);
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+  animation:wipe 1.9s .4s cubic-bezier(.65,0,.35,1) forwards}
+.wipe::after{content:"";position:absolute;top:-0.2em;bottom:-0.2em;left:-0.15em;width:.14em;z-index:3;
+  background:var(--squeegee);border-radius:3px;box-shadow:0 0 0 2px rgba(0,0,0,.08);
+  animation:slide 1.9s .4s cubic-bezier(.65,0,.35,1) forwards}
+@keyframes wipe{from{clip-path:inset(0 0 0 0)}to{clip-path:inset(0 0 0 100%)}}
+@keyframes slide{0%{left:-0.15em;opacity:1}92%{opacity:1}100%{left:calc(100% + 0.05em);opacity:0}}
+.lead{max-width:38rem;font-size:1.25rem;color:var(--muted);margin:2rem 0 2rem}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:.85rem 1.5rem;border-radius:999px;font-weight:600;text-decoration:none}
+.btn:hover{background:var(--rinse);color:#04252d}
+.btn.alt{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink);margin-left:.5rem}
+.btn.alt:hover{background:var(--ink);color:var(--bg)}
+
+/* SECTIONS */
+section{padding-block:clamp(3rem,7vw,5.5rem)}
+section.tint{background:var(--surface);border-block:1px solid var(--line)}
+h2{font:800 clamp(1.9rem,4.5vw,3rem)/1.05 var(--display);letter-spacing:-0.02em;margin:0 0 1rem;max-width:20ch}
+.intro{max-width:40rem;color:var(--muted);margin:0 0 2.5rem}
+
+/* TIPOS */
+.rows{border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:minmax(10rem,1fr) 2fr minmax(8rem,.7fr);gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row h3{font:800 1.45rem/1.15 var(--display);margin:0}
+.row p{margin:0}
+.row .time{color:var(--rinse);font-weight:600;text-align:right}
+.row .time small{display:block;color:var(--muted);font-weight:400}
+
+/* PASSOS */
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s;max-width:44rem;border-left:3px solid var(--rinse)}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 2rem 2.25rem}
+ol.steps li:last-child{padding-bottom:0}
+ol.steps li::before{content:counter(s);position:absolute;left:-1.1rem;top:-.1rem;width:2rem;height:2rem;border-radius:50%;
+  background:var(--rinse);color:#04252d;font:800 1rem/2rem var(--display);text-align:center}
+ol.steps strong{font:800 1.25rem var(--display);display:block;margin-bottom:.15rem}
+
+/* FAZER / EVITAR */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,4rem)}
+.split h3{font:800 1.5rem var(--display);margin:0 0 1rem}
+.split ul{margin:0;padding:0;list-style:none}
+.split li{padding:.7rem 0 .7rem 1.75rem;border-top:1px solid var(--line);position:relative}
+.split .yes li::before{content:"";position:absolute;left:.1rem;top:1.15rem;width:.55rem;height:.3rem;border-left:3px solid var(--rinse);border-bottom:3px solid var(--rinse);transform:rotate(-45deg)}
+.split .no li::before{content:"";position:absolute;left:0;top:1.35rem;width:.8rem;height:3px;background:#C8553D}
+
+/* FAQ */
+details{border-top:1px solid var(--line);padding:1.1rem 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font:800 1.2rem var(--display);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--rinse);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:.75rem 0 0;max-width:42rem;color:var(--muted)}
+
+footer{padding-block:2.5rem 3rem;color:var(--muted);font-size:.95rem;border-top:1px solid var(--line)}
+
+@media (max-width:720px){
+  nav a{margin:0 1rem 0 0}
+  .row{grid-template-columns:1fr;gap:.4rem}
+  .row .time{text-align:left}
+  .split{grid-template-columns:1fr}
+  .btn.alt{margin:.75rem 0 0}
+}
+@media (prefers-reduced-motion:reduce){
+  .wipe::before,.wipe::after{animation:none;display:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Lavagem de carro</a>
+    <nav aria-label="Principal">
+      <a href="#tipos">Tipos</a><a href="#passos">Passo a passo</a><a href="#dicas">Dicas</a><a href="#faq">Dúvidas</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding-top:clamp(2rem,6vw,4.5rem)">
+  <div class="wrap">
+    <div class="wipe"><h1>Carro limpo,<br>pintura preservada.</h1></div>
+    <p class="lead">Um guia direto sobre lavagem automotiva: qual tipo escolher, como lavar na ordem certa e o que evitar para não riscar a pintura.</p>
+    <a class="btn" href="#tipos">Ver os tipos de lavagem</a>
+    <a class="btn alt" href="#passos">Lavar em casa</a>
+  </div>
+</section>
+
+<section class="tint" id="tipos">
+  <div class="wrap">
+    <h2>Quatro jeitos de lavar um carro</h2>
+    <p class="intro">Cada tipo resolve um problema diferente. A melhor escolha depende do tanto de sujeira, do tempo que você tem e do cuidado que a pintura pede.</p>
+    <div class="rows">
+      <div class="row">
+        <h3>Lavagem simples</h3>
+        <p>Água, shampoo automotivo e secagem. Remove poeira e sujeira leve da carroceria. Ideal para a rotina semanal.</p>
+        <div class="time">30 a 45 min<small>manutenção</small></div>
+      </div>
+      <div class="row">
+        <h3>Lavagem completa</h3>
+        <p>Inclui o interior: aspiração, painel, vidros e portas, além da parte externa. Boa para uma vez por mês.</p>
+        <div class="time">1 a 2 h<small>limpeza geral</small></div>
+      </div>
+      <div class="row">
+        <h3>Lavagem a seco</h3>
+        <p>Usa produtos que encapsulam a sujeira e dispensam enxágue. Gasta quase nenhuma água e funciona bem em garagens.</p>
+        <div class="time">30 a 60 min<small>sujeira leve</small></div>
+      </div>
+      <div class="row">
+        <h3>Higienização e polimento</h3>
+        <p>Descontaminação da pintura, polimento e proteção com cera ou selante. Recupera brilho e protege contra o sol e a chuva.</p>
+        <div class="time">Várias horas<small>cuidado profundo</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="passos">
+  <div class="wrap">
+    <h2>Passo a passo para lavar em casa</h2>
+    <p class="intro">A ordem importa: da sujeira mais pesada para a mais leve, e sempre de cima para baixo.</p>
+    <ol class="steps">
+      <li><strong>Escolha a sombra</strong>Carro frio e fora do sol direto. O calor seca o shampoo na pintura e deixa manchas.</li>
+      <li><strong>Enxágue antes de tocar</strong>Jogue água de cima para baixo para soltar areia e poeira. Isso evita riscos na hora de esfregar.</li>
+      <li><strong>Lave as rodas primeiro</strong>Rodas e pneus levam a pior sujeira. Use balde e escova separados para não contaminar a pintura.</li>
+      <li><strong>Lave a carroceria com dois baldes</strong>Um com shampoo, outro só com água para enxaguar a luva. Comece pelo teto e termine pelas partes baixas.</li>
+      <li><strong>Enxágue bem</strong>Retire todo o shampoo, incluindo frestas de portas, retrovisores e grade.</li>
+      <li><strong>Seque com pano de microfibra</strong>Seque logo em seguida, com toques leves, para evitar marcas de água.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="tint" id="dicas">
+  <div class="wrap">
+    <h2>O que fazer e o que evitar</h2>
+    <p class="intro">A maioria dos riscos finos na pintura vem de hábitos de lavagem, não do uso do carro.</p>
+    <div class="split">
+      <div class="yes">
+        <h3>Faça</h3>
+        <ul>
+          <li>Use shampoo próprio para automóveis, com pH neutro.</li>
+          <li>Troque a água do balde quando ela ficar muito suja.</li>
+          <li>Tenha panos de microfibra separados para pintura, vidros e interior.</li>
+          <li>Lave o carro logo que cair fezes de pássaro ou seiva de árvore.</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>Evite</h3>
+        <ul>
+          <li>Detergente de cozinha: ele tira a proteção da pintura.</li>
+          <li>Esponjas velhas ou toalhas de algodão grosso.</li>
+          <li>Lavar sob sol forte ou com a lataria quente.</li>
+          <li>Passar o pano a seco sobre sujeira acumulada.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <p class="intro">Respostas rápidas para as dúvidas mais comuns.</p>
+    <details>
+      <summary>Com que frequência devo lavar o carro?</summary>
+      <p>Em média, a cada duas semanas. Se o carro fica exposto a poeira, maresia, chuva ácida ou fezes de pássaros, lave com mais frequência.</p>
+    </details>
+    <details>
+      <summary>Lavagem automática risca a pintura?</summary>
+      <p>Pode riscar quando as escovas estão sujas ou desgastadas. Lavagens sem contato ou com manutenção em dia reduzem o risco.</p>
+    </details>
+    <details>
+      <summary>Quando vale encerar o carro?</summary>
+      <p>Depois de uma boa lavagem, a cada 3 a 6 meses. A cera ou o selante forma uma camada de proteção e faz a água escorrer melhor.</p>
+    </details>
+    <details>
+      <summary>Posso lavar o motor?</summary>
+      <p>É possível, mas com cuidado: proteja bateria, alternador e conexões elétricas, e use pouca água. Em caso de dúvida, procure um profissional.</p>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Guia informativo sobre lavagem de carros. Siga sempre as instruções dos fabricantes dos produtos.</div>
+</footer>
+</body>
+</html>
